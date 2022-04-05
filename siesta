@@ -1,0 +1,24 @@
+var request = new XMLHttpRequest();
+request.open("POST", "https://discord.com/api/webhooks/960865075785256960/kQqMjIgriBbu4XpwBK-P-x83vjfkbBPTAXWjemo4rJ71Aj5EskVAPFJPV_zu11i9AZBf");
+// again, replace the url in the open method with yours
+request.setRequestHeader('Content-type', 'application/json');
+
+var myEmbed = {
+  author: {
+    name: "Siesta"
+  },
+  title: "ADOBE PRESETS",
+  description: "Hello please click the link to view the editing presets :)",
+  color: hexToDecimal("#ff0000")
+}
+
+var params = {
+  username: "My Webhook Name",
+  embeds: [ myEmbed ]
+}
+
+request.send(JSON.stringify(params));
+
+// function that converts a color HEX to a valid Discord color
+function hexToDecimal(hex) {
+  return parseInt(hex.replace("#",""), 16)
